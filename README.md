@@ -32,7 +32,7 @@ Kleiner Datensatz: **Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml** (28.7 MB)
 
 Größerer Datensatz mit separaten Flurstück-Polygonen (so dass derzeit nur Flurstückzentren als Punkte dargestellt werden): **6-0-1_Beispiel_gesamt_2370_20120704.xml** (167.5 MB)
 
-[Extrakte aus BW Testdaten](testExtracts/BB/ALKIS_processing.html)
+[Extrakte aus BW Testdaten](testExtracts/BW/ALKIS_processing.html)
 
 
 
