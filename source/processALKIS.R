@@ -132,7 +132,7 @@ processALKIS <- function(path2NASfile,
   ## SHP-Dateien schreiben:
   try(st_write(Flurstueck_ET, paste(desktop.path,
                                     "AX_Flurstueck_ET.shp", sep = "/"),
-               delete_dsn = shp.overwrite))
+               delete_dsn = shp.overwrite, quiet = TRUE))
   
   
   

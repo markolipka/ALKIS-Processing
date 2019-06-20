@@ -18,6 +18,7 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
 rmarkdown::render("source/ALKIS_processing.Rmd",
                   params = list(
                     alkisDataFile = "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml",
+                    source = "https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html",
                     dynamic = TRUE),
                   output_dir = "testExtracts/SH/")
 
@@ -25,6 +26,7 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
 rmarkdown::render("source/ALKIS_processing.Rmd",
                   params = list(
                     alkisDataFile = "../testdaten/BB/ALKIS_NAS_Beispieldaten_Bestand_BB.xml",
+                    source = "https://www.geobasis-bb.de/geodaten/aaa-testdaten.html",
                     dynamic = TRUE),
                   output_dir = "testExtracts/BB/")
 
@@ -32,5 +34,6 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
 rmarkdown::render("source/ALKIS_processing.Rmd",
                   params = list(
                     alkisDataFile = "../testdaten/BW/6-0-1_Beispiel_gesamt_2370_20120704.xml",
+                    source = "https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html",
                     dynamic = TRUE),
                   output_dir = "testExtracts/BW/")
