@@ -12,6 +12,7 @@ params:
     input: file
     multiple: FALSE
     accept: "text/xml"
+  crs: 25832
   source: "https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html"
   dynamic:
       label: "Dynamische Übersichtskarte ausgeben? (kann bei großen Datensätzen sehr lange dauern...)"
@@ -35,7 +36,7 @@ source("processALKIS.R") # lade eigentlichen Code aus externem Skript
 alkisDataFile <- params$alkisDataFile
 
 alkis <- processALKIS(path2NASfile = alkisDataFile,
-                      crs = 25832)
+                      crs = params$crs)
 ```
 
 `r nrow(alkis$ETtab)` Flurstücke extrahiert aus ALKIS-NAS-Datei. 
