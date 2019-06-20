@@ -21,19 +21,25 @@ Extraktion von Eigentümerinformationen und Karten aus ALKIS-Daten im NAS-Format
 
 [Testdaten aus SH](https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html)
 
-Datei **Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml** (28.7 MB)
+Kleiner Datensatz: **Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml** (28.7 MB)
 
 [Extrakte aus SH Testdaten](testExtracts/SH/ALKIS_processing.html)
-
-### Brandenburg
-
-[Testdaten aus BB](https://www.geobasis-bb.de/geodaten/aaa-testdaten.html)
-
-[Extrakte aus BB Testdaten](testExtracts/BB/ALKIS_processing.html)
 
 
 ### Baden-Württemberg
 
 [Testdaten aus BW](https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html)
 
+Größerer Datensatz mit separaten Flurstück-Polygonen (so dass derzeit nur Flurstückzentren als Punkte dargestellt werden): **6-0-1_Beispiel_gesamt_2370_20120704.xml** (167.5 MB)
+
 [Extrakte aus BW Testdaten](testExtracts/BB/ALKIS_processing.html)
+
+
+
+### Brandenburg
+
+[Testdaten aus BB](https://www.geobasis-bb.de/geodaten/aaa-testdaten.html)
+
+Sehr großer Datensatz: **ALKIS_NAS_Beispieldaten_Bestand_BB.xml** (434.7 MB)
+
+[Extrakte aus BB Testdaten](testExtracts/BB/ALKIS_processing.html)
