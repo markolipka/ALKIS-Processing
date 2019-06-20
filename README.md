@@ -1,6 +1,6 @@
-# ALKISprocessing
+# ALKIS-Processing
 
-Extraktion von Eigentümerinformationen und Karten aus ALKIS-Daten im NAS-Format; ein tidyverse / sf Ansatz
+Automatisierte Extraktion von Eigentümerinformationen und Kartengenerierung aus ALKIS-Daten im NAS-Format; ein tidyverse / sf Ansatz
 
 ## Hintergrund
 
