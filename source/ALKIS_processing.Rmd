@@ -1,0 +1,86 @@
+---
+title: "ALKIS-Datenextraktion"
+author: "MLI (lipka@uka-nord.de)"
+date: "`r format(Sys.time())`"
+output: 
+  html_document: 
+    toc: yes
+params:
+  alkisDataFile:
+    label: "Pfad zur ALKIS Eingabedatei:"
+    value: "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml"
+    input: file
+    multiple: FALSE
+    accept: "text/xml"
+  dynamic:
+      label: "Dynamische Übersichtskarte ausgeben? (kann bei großen Datensätzen sehr lange dauern...)"
+      value: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+# Loading additional libraries:
+library(mapview) # dynamische Karten plotten
+source("processALKIS.R") # lade eigentlichen Code aus externem Skript
+```
+
+```{r LoadData}
+## Testdatensätze mit Eigentümerdaten:
+#alkisDataFile <- "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml"
+alkisDataFile <- params$alkisDataFile
+
+alkis <- processALKIS(path2NASfile = alkisDataFile,
+                      crs = 25832)
+```
+
+`r nrow(alkis$ETtab)` Flurstücke extrahiert aus ALKIS-NAS-Datei. 
+
+# Übersichtskarte:
+
+```{r, fig.width=10, fig.height=10}
+mapOV(alkis, dynamic = params$dynamic)
+```
+
+*ToDo: Maßstab und Hintergrundkarte in statischer Karte ergänzen*
+
+# Flurkarte
+
+mit Flurstücksnummern und Färbung der 12 wichtigsten Eigentümer(gemeinschaften):
+
+```{r FSplot, fig.width=30, fig.height=30}
+mapFlur(alkis)
+```
+
+*ToDo: ggrepel labels, ET-Namen, Maßstab, Luftbild als Hintergrund, Gemarkung, Flur, Gemeindenamen*
+
+# Tabellen
+
+## Flurstücke
+
+`r nrow(alkis$ETtab)` Flurstücke 
+mit einer Gesamtfläche von 
+`r alkis$ETtab$amtlicheFlaeche %>% sum() / 10000` ha.
+
+Die Folgende Tabelle zeigt jedes Flurstück mit genauer Bezeichnung, amtlicher Fläche und zugehörigen Eigentümern oder Eigentümergemeinschaften:
+
+```{r}
+tabFS(alkis)
+```
+
+
+## Eigentümer(gemeinschaften)
+
+Jeder Einzeleigentümer oder Eigentümergemeinschaft mit jeweils Anzahl und Fläche ihrer Flurstücke:
+
+```{r FStable}
+tabEG(alkis)
+```
+
+## Persönliche Daten
+
+Jeder Eigentümer mit aus ALKIS-Daten extrahierten Adressen und Telefonnummern:
+
+```{r ETtable}
+tabET(alkis)
+```
+
