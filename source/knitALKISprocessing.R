@@ -27,7 +27,7 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
                   params = list(
                     alkisDataFile = "../testdaten/BB/ALKIS_NAS_Beispieldaten_Bestand_BB.xml",
                     source = "https://www.geobasis-bb.de/geodaten/aaa-testdaten.html",
-                    dynamic = TRUE),
+                    dynamic = FALSE),
                   output_dir = "testExtracts/BB/")
 
 # BW: https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html

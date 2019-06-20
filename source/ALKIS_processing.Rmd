@@ -56,6 +56,8 @@ mit Flurstücksnummern und Färbung der 12 wichtigsten Eigentümer(gemeinschafte
 mapFlur(alkis)
 ```
 
+**Diese Karte wird auch als pdf exportiert.**
+
 *ToDo: ggrepel labels, ET-Namen, Maßstab, Luftbild als Hintergrund, Gemarkung, Flur, Gemeindenamen*
 
 # Tabellen
@@ -72,6 +74,7 @@ Die Folgende Tabelle zeigt jedes Flurstück mit genauer Bezeichnung, amtlicher F
 tabFS(alkis)
 ```
 
+**Diese Tabelle wird auch als xlsx exportiert.**
 
 ## Eigentümer(gemeinschaften)
 
@@ -81,6 +84,8 @@ Jeder Einzeleigentümer oder Eigentümergemeinschaft mit jeweils Anzahl und Flä
 tabEG(alkis)
 ```
 
+**Diese Tabelle wird auch als xlsx exportiert.**
+
 ## Persönliche Daten
 
 Jeder Eigentümer mit aus ALKIS-Daten extrahierten Adressen und Telefonnummern:
@@ -89,3 +94,4 @@ Jeder Eigentümer mit aus ALKIS-Daten extrahierten Adressen und Telefonnummern:
 tabET(alkis)
 ```
 
+**Diese Tabelle wird auch als xlsx exportiert.**
