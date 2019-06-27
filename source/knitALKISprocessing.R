@@ -49,6 +49,9 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
                     source = "https://www.gds.hessen.de/",
                     dynamic = TRUE),
                   output_dir = "testExtracts/HE/")
+### Vergleichsdaten im testdatensatz Hessen:
+# he.vgl.shp <- read_sf("testdaten/ALKIS-Testdaten_Hessen/Daten_Shape/ax_11001_area.shp")
+# plot(he.vgl.shp, max.plot = 1)
 
 ## BY: https://www.ldbv.bayern.de/service/testdaten.html
 rmarkdown::render("source/ALKIS_processing.Rmd",
@@ -58,3 +61,7 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
                     source = "https://www.ldbv.bayern.de/service/testdaten.html",
                     dynamic = TRUE),
                   output_dir = "testExtracts/BY/")
+
+### BY Vergleichsdaten im Testdatensatz:
+#by.vgl <- read.csv("testdaten/BY/Testdatei_Lurchingen.csv", sep = "#")
+#by.vgl.shp <- read_sf("testdaten/BY/Flurstueck.shp")

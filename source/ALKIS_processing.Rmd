@@ -33,6 +33,7 @@ source("processALKIS.R") # lade eigentlichen Code aus externem Skript
 ```{r LoadData}
 ## Testdatensätze mit Eigentümerdaten:
 #alkisDataFile <- "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml"
+#alkisDataFile <- path2NASfile
 alkisDataFile <- params$alkisDataFile
 
 alkis <- processALKIS(path2NASfile = alkisDataFile,
