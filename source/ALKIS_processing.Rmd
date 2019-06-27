@@ -1,6 +1,6 @@
 ---
 title: "ALKIS-Datenextraktion"
-author: "MLI (marko.lipka@posteo.de)"
+author: "Marko Lipka  --  marko.lipka@posteo.de"
 date: "`r format(Sys.time())`"
 output: 
   html_document: 

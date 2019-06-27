@@ -40,3 +40,12 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
                     source = "https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html",
                     dynamic = TRUE),
                   output_dir = "testExtracts/BW/")
+
+# Hessen: 
+rmarkdown::render("source/ALKIS_processing.Rmd",
+                  params = list(
+                    alkisDataFile = "../testdaten/ALKIS-Testdaten_Hessen/GID6_BestandsdatenausgabeFlurstueck_Eigentum.xml",
+                    crs = 25832,
+                    source = "https://www.gds.hessen.de/",
+                    dynamic = TRUE),
+                  output_dir = "testExtracts/HE/")

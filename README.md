@@ -17,6 +17,14 @@ Automatisierte Extraktion von Eigentümerinformationen und Kartengenerierung aus
 
 ## Testdaten
 
+### Hessen
+
+[Testdaten aus HE](https://www.gds.hessen.de/)
+
+Sehr kleiner Datensatz: **GID6_BestandsdatenausgabeFlurstueck_Eigentum.xml** (4.3 MB)
+
+[Extrakte aus HE Testdaten](testExtracts/HE/ALKIS_processing.html)
+
 ### Schleswig Holstein
 
 [Testdaten aus SH](https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html)
