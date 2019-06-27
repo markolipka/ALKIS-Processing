@@ -51,3 +51,12 @@ Größerer Datensatz mit separaten Flurstück-Polygonen (so dass derzeit nur Flu
 Sehr großer Datensatz: **ALKIS_NAS_Beispieldaten_Bestand_BB.xml** (434.7 MB)
 
 [Extrakte aus BB Testdaten](testExtracts/BB/ALKIS_processing.html)
+
+
+### Bayern
+
+[Testdaten aus BY](https://www.ldbv.bayern.de/service/testdaten.html)
+
+Kleiner Datensatz: **testdaten_alkis_komplett_nas_25833.xml** (24.9 MB)
+
+[Extrakte aus BB Testdaten](testExtracts/BY/ALKIS_processing.html)

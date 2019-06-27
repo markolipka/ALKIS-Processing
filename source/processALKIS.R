@@ -15,12 +15,13 @@ switch(Sys.info()[['sysname']],
        Linux   = {desktop.path <- "~/Desktop/ALKISextracts/"},
        Darwin  = {desktop.path <- "~/Desktop/ALKISextracts/"})
 
-path2NASfile <- "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml" # SH
+#path2NASfile <- "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml" # SH
 #path2NASfile <- "../testdaten/BW/6-0-1_Beispiel_gesamt_2370_20120704.xml" # BW
 #path2NASfile <- "../testdaten/BB/ALKIS_NAS_Beispieldaten_Bestand_BB.xml" # BB
+#path2NASfile <- "../testdaten/BY/testdaten_alkis_komplett_nas_25833.xml" # BY
 
 processALKIS <- function(path2NASfile,
-                         crs = 25832,
+                         crs = 25833,
                          shp.overwrite = TRUE
 ) {
   
@@ -208,7 +209,8 @@ tabFS <- function(alkisExtract) {
   tab <- alkis$ETtab %>%
     st_drop_geometry() %>%
     arrange(flurstueckskennzeichen) %>%
-    select(flurstueckskennzeichen, FS, gemarkungsnummer, flurnummer,
+    select(flurstueckskennzeichen, FS, gemarkungsnummer, 
+           #flurnummer, # keine Flurnummer in BY Daten vorhanden?!
            amtlicheFlaeche, ET,
            everything())
   

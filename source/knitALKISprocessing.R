@@ -7,9 +7,9 @@ switch(Sys.info()[['sysname']],
        Linux   = {desktop.path <- "~/Desktop/ALKISextracts/"},
        Darwin  = {desktop.path <- "~/Desktop/ALKISextracts/"})
 
-rmarkdown::render("source/ALKIS_processing.Rmd",
-                  params = "ask",
-                  output_dir = desktop.path)
+# rmarkdown::render("source/ALKIS_processing.Rmd",
+#                   params = "ask",
+#                   output_dir = desktop.path)
 
 
 ### tests:
@@ -49,3 +49,12 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
                     source = "https://www.gds.hessen.de/",
                     dynamic = TRUE),
                   output_dir = "testExtracts/HE/")
+
+## BY: https://www.ldbv.bayern.de/service/testdaten.html
+rmarkdown::render("source/ALKIS_processing.Rmd",
+                  params = list(
+                    alkisDataFile = "../testdaten/BY/testdaten_alkis_komplett_nas_25833.xml",
+                    crs = 25833,
+                    source = "https://www.ldbv.bayern.de/service/testdaten.html",
+                    dynamic = TRUE),
+                  output_dir = "testExtracts/BY/")
