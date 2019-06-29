@@ -26,8 +26,8 @@ processALKIS <- function(path2NASfile,
                          crs = 25833,
                          shp.overwrite = TRUE
 ) {
-  
-  #st_layers(path2NASfile)
+  ## check auf Eigentümer-Daten in ALKIS-Datei:
+  if (!"AX_Person" %in% st_layers(path2NASfile)$name) stop("Keine ET-Daten")
   
   troubling_cols <- c("identifier", "beginnt", "advStandardModell", "anlass")
   
