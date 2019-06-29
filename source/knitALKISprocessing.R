@@ -2,10 +2,10 @@
 
 options(shiny.maxRequestSize = 500 * 1024 * 1024) # max upload size in Bytes
 
-switch(Sys.info()[['sysname']],
-       Windows = {desktop.path <- "C:/User/MLI/Desktop/ALKISextracts/"},
-       Linux   = {desktop.path <- "~/Desktop/ALKISextracts/"},
-       Darwin  = {desktop.path <- "~/Desktop/ALKISextracts/"})
+# switch(Sys.info()[['sysname']],
+#        Windows = {desktop.path <- "C:/User/MLI/Desktop/ALKISextracts/"},
+#        Linux   = {desktop.path <- "~/Desktop/ALKISextracts/"},
+#        Darwin  = {desktop.path <- "~/Desktop/ALKISextracts/"})
 
 # rmarkdown::render("source/ALKIS_processing.Rmd",
 #                   params = "ask",
