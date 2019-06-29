@@ -15,12 +15,14 @@ switch(Sys.info()[['sysname']],
        Linux   = {desktop.path <- "~/Desktop/ALKISextracts/"},
        Darwin  = {desktop.path <- "~/Desktop/ALKISextracts/"})
 
-#path2NASfile <- "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml" # SH
-#path2NASfile <- "../testdaten/BW/6-0-1_Beispiel_gesamt_2370_20120704.xml" # BW
-#path2NASfile <- "../testdaten/BB/ALKIS_NAS_Beispieldaten_Bestand_BB.xml" # BB
-#path2NASfile <- "../testdaten/BY/testdaten_alkis_komplett_nas_25833.xml" # BY
-#path2NASfile <- "../testdaten/BE/auftragsposition_2_NAS_AMGR000000023166_1.xml" # BE
-#path2NASfile <- "../testdaten/RP/RP51_AX_Bestandsdatenauszug.xml" # RP
+#path2NASfile <- "estdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml" # SH
+#path2NASfile <- "testdaten/BW/6-0-1_Beispiel_gesamt_2370_20120704.xml" # BW
+#path2NASfile <- "testdaten/BB/ALKIS_NAS_Beispieldaten_Bestand_BB.xml" # BB
+#path2NASfile <- "testdaten/BY/testdaten_alkis_komplett_nas_25833.xml" # BY
+#path2NASfile <- "testdaten/BE/auftragsposition_2_NAS_AMGR000000023166_1.xml" # BE
+#path2NASfile <- "testdaten/RP/RP51_AX_Bestandsdatenauszug.xml" # RP
+#path2NASfile <- "testdaten/NW/testdaten_bda_oe.xml" # NRW FS
+#path2NASfile <- "testdaten/NW/result_FeatureCollection_bda.xml" # NRW ET
 
 processALKIS <- function(path2NASfile,
                          crs = 25833,
@@ -33,7 +35,11 @@ processALKIS <- function(path2NASfile,
   
   Flurstueck <- read_sf(path2NASfile, "AX_Flurstueck", crs = crs) %>%
     rename(FSgmlid = gml_id) %>%
-    select(-one_of(troubling_cols))
+    select(-one_of(troubling_cols)) %>%
+    # Erstelle Spalte "nenner", falls es keine gibt (wie z.B. in NRW)
+    mutate(nenner = ifelse("nenner" %in% names(.),
+                            nenner,
+                            NA_character_))
   
   Buchungsstelle <- read_sf(path2NASfile, "AX_Buchungsstelle") %>%
     rename(BSgmlid = gml_id) %>%
@@ -60,7 +66,7 @@ processALKIS <- function(path2NASfile,
   Person <- read_sf(path2NASfile, "AX_Person") %>%
     rename(Pgmlid = gml_id) %>%
     select(-one_of(troubling_cols)) %>%
-    # Erstelle Spalte Vorname, falls es keine gibt (wie z.B. in Rheinland-Pfalz)
+    # Erstelle Spalte "vorname", falls es keine gibt (wie z.B. in Rheinland-Pfalz)
     mutate(vorname = ifelse("vorname" %in% names(.),
                             vorname,
                             NA_character_))
@@ -198,8 +204,8 @@ mapOV <- function(alkisExtract,
                   param = "ET") {
   if (dynamic) {
     # dynamische Karte:
-    mapview(alkis$ETtab, zcol = "ET", legend = FALSE) # könnte lange dauern
-  }else plot(alkis$ETtab["ET"]) # statische Karte
+    mapview(alkisExtract$ETtab, zcol = "ET", legend = FALSE) # könnte lange dauern
+  }else plot(alkisExtract$ETtab["ET"]) # statische Karte
 }
 
 mapFlur <- function(alkisExtract, export.pdf = TRUE) {
@@ -207,8 +213,8 @@ mapFlur <- function(alkisExtract, export.pdf = TRUE) {
     slice(1:12) %>%
     ggplot() +
     geom_sf(aes(fill = label), color = "black") +
-    geom_sf(data = alkis$ETtab, fill = NA, color = "darkgrey") +
-    geom_sf_text(data = alkis$ETtab, aes(label = FS),
+    geom_sf(data = alkisExtract$ETtab, fill = NA, color = "darkgrey") +
+    geom_sf_text(data = alkisExtract$ETtab, aes(label = FS),
                  check_overlap = TRUE) + # kleinere Flurstücke werden bei Überlappung nicht gelabelt, da FSstats nach FS-Größe sortiert ist (?)
     scale_fill_brewer(palette = "Paired") +
     guides(fill = guide_legend(reverse = TRUE))
@@ -219,7 +225,7 @@ mapFlur <- function(alkisExtract, export.pdf = TRUE) {
 }
 
 tabFS <- function(alkisExtract) {
-  tab <- alkis$ETtab %>%
+  tab <- alkisExtract$ETtab %>%
     st_drop_geometry() %>%
     arrange(flurstueckskennzeichen) %>%
     select(flurstueckskennzeichen, FS, gemarkungsnummer, 
