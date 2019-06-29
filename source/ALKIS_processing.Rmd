@@ -12,10 +12,14 @@ params:
     input: file
     multiple: FALSE
     accept: "text/xml"
-  crs: 25832
-  source: "https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html"
+  crs: 
+    value: 25832
+    label: "EPSG-Code des Koordinatenreferenzsystems"
+  source: 
+    value: "https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html"
+    label: "Quelle der ALKIS-Daten: Beschreibung oder Link"
   dynamic:
-      label: "Dynamische Übersichtskarte ausgeben? (kann bei großen Datensätzen sehr lange dauern...)"
+      label: "Dynamische Übersichtskarte ausgeben? (kann bei großen Datensätzen lange dauern...)"
       value: TRUE
 ---
 
