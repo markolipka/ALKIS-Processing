@@ -19,6 +19,8 @@ switch(Sys.info()[['sysname']],
 #path2NASfile <- "../testdaten/BW/6-0-1_Beispiel_gesamt_2370_20120704.xml" # BW
 #path2NASfile <- "../testdaten/BB/ALKIS_NAS_Beispieldaten_Bestand_BB.xml" # BB
 #path2NASfile <- "../testdaten/BY/testdaten_alkis_komplett_nas_25833.xml" # BY
+#path2NASfile <- "../testdaten/BE/auftragsposition_2_NAS_AMGR000000023166_1.xml" # BE
+#path2NASfile <- "../testdaten/RP/RP51_AX_Bestandsdatenauszug.xml" # RP
 
 processALKIS <- function(path2NASfile,
                          crs = 25833,
@@ -57,7 +59,11 @@ processALKIS <- function(path2NASfile,
   
   Person <- read_sf(path2NASfile, "AX_Person") %>%
     rename(Pgmlid = gml_id) %>%
-    select(-one_of(troubling_cols))
+    select(-one_of(troubling_cols)) %>%
+    # Erstelle Spalte Vorname, falls es keine gibt (wie z.B. in Rheinland-Pfalz)
+    mutate(vorname = ifelse("vorname" %in% names(.),
+                            vorname,
+                            NA_character_))
   
   Anschrift <- read_sf(path2NASfile, "AX_Anschrift") %>%
     rename(Agmlid = gml_id) %>%
@@ -84,7 +90,8 @@ processALKIS <- function(path2NASfile,
   }, silent = TRUE)
   
   ## Attribute-JOIN, um Flurstück und Eigentümerinfo zu verbinden:
-  FSETjoin <- Flurstueck %>%
+  FSETjoin <- 
+    Flurstueck %>%
     st_drop_geometry() %>%
     merge(doppelverbindung,
           by = "FSgmlid", all.x = TRUE) %>%
@@ -92,8 +99,8 @@ processALKIS <- function(path2NASfile,
     #merge(Gemarkung, by = c("land", "gemarkungsnummer"), all.x = TRUE) %>%
     # Flurstück *istGebucht* auf BuchungsStelle via *BSgmlid*
     merge(Buchungsstelle %>%
-            select(-starts_with("zaehler"), -starts_with("nenner")), # unklar, warum zaehler- und nenner-Spalten hier erneut auftauchen!!
-          by = "BSgmlid", all.x = TRUE) %>%
+            select(-starts_with("zaehler"), -starts_with("nenner")), # unklar, warum diese hier manchmal erneut auftauchen!!
+          by = "BSgmlid", all.x = TRUE) %>% 
     # Entschlüsselung der Buchungsart
     #merge(Buchungsart, ...) # TODO: falls wichtig
     #  merge(Buchungsblatt,
@@ -104,13 +111,18 @@ processALKIS <- function(path2NASfile,
     #               -schluesselGesamt, -stelle, -bezeichnung), #unklar, wozu diese hier noch einmal aufgeführt sind...
     #        by = c("GBland", "bezirk"), all.x = TRUE) %>%
     # Buchungsstelle hängt zusammen mit Namensnummer via *istBestandteilVon*
-    merge(select(Namensnummer, -zaehler, -nenner), #unklar, wozu diese hier noch einmal aufgeführt sind...
-          by = "istBestandteilVon", all.x = TRUE) %>% 
+    merge(Namensnummer %>%
+            select(-one_of("zaehler", "nenner", "name", "art")), #unklar, wozu diese hier manchmal noch einmal aufgeführt sind...
+          by = "istBestandteilVon", all.x = TRUE) %>% #names()
     # Namensnummer *benennt* Person via Pgmlid
-    merge(Person, by.x = "benennt", by.y = "Pgmlid", all.x = TRUE) %>% 
+    merge(Person %>%
+            select(-one_of("zaehler", "nenner", "name", "art")), #unklar, wozu diese hier manchmal noch einmal aufgeführt sind...
+          by.x = "benennt", by.y = "Pgmlid", all.x = TRUE) %>% #names()
     # Person *hat* Anschrift via *Agmlid*
-    unnest(hat) %>%
-    merge(Anschrift, by.x = "hat", by.y = "Agmlid", all.x = TRUE) %>% # FIXME: hier sollte ein ANY-Join stehen, so dass auch mehrere links in "hat" ausgewertet werden. Mglw. muss "Person" um Zeilen erweitert werden, wo "hat" mehrere Einträge hat?!
+    unnest(hat) %>% #names() # äquivalent zu ANY-Join, so dass auch mehrere links in "hat" ausgewertet werden. "Person" wird um Zeilen erweitert, wo "hat" mehrere Einträge hat.
+    merge(Anschrift %>%
+            select(-one_of("zaehler", "nenner", "name", "art", "CharacterString", "CI_RoleCode", "DateTime", "qualitaetsangaben|AX_DQOhneDatenerhebung|herkunft|LI_Lineage|processStep|LI_ProcessStep|processor|CI_ResponsibleParty|organisationName|CharacterString")), #unklar, wozu diese hier manchmal noch einmal aufgeführt sind...
+          by.x = "hat", by.y = "Agmlid", all.x = TRUE) %>% #names() 
     #unique() %>% 
     mutate(Eigentuemer = if_else(is.na(vorname),
                                  nachnameOderFirma,

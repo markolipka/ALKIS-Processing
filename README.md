@@ -15,48 +15,25 @@ Automatisierte Extraktion von Eigentümerinformationen und Kartengenerierung aus
 *Simple features* bezieht sich auf eine formale Norm (ISO 19125-1:2004), die beschreibt, wie Objekte in der realen Welt in Computern dargestellt werden können, mit Schwerpunkt auf der Raumgeometrie dieser Objekte. Es wird auch beschrieben, wie solche Objekte in Datenbanken gespeichert und aus Datenbanken abgerufen werden können und welche geometrischen Operationen für sie definiert werden sollten.
 
 
-## Testdaten
+## Testdaten der einzelnen Bundesländer
 
-### Hessen
+In der folgenden -- noch unvollständigen -- Tabelle sind die ALKIS-Testdaten der Bundesländer und die Links zu daraus gewonnenen Tabellen und Karten (Extrakte) aufgeführt.
 
-[Testdaten aus HE](https://www.gds.hessen.de/)
-
-Sehr kleiner Datensatz: **GID6_BestandsdatenausgabeFlurstueck_Eigentum.xml** (4.3 MB)
-
-[Extrakte aus HE Testdaten](testExtracts/HE/ALKIS_processing.html)
-
-### Schleswig Holstein
-
-[Testdaten aus SH](https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html)
-
-Kleiner Datensatz: **Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml** (28.7 MB)
-
-[Extrakte aus SH Testdaten](testExtracts/SH/ALKIS_processing.html)
-
-
-### Baden-Württemberg
-
-[Testdaten aus BW](https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html)
-
-Größerer Datensatz mit separaten Flurstück-Polygonen (so dass derzeit nur Flurstückzentren als Punkte dargestellt werden): **6-0-1_Beispiel_gesamt_2370_20120704.xml** (167.5 MB)
-
-[Extrakte aus BW Testdaten](testExtracts/BW/ALKIS_processing.html)
-
-
-
-### Brandenburg
-
-[Testdaten aus BB](https://www.geobasis-bb.de/geodaten/aaa-testdaten.html)
-
-Sehr großer Datensatz: **ALKIS_NAS_Beispieldaten_Bestand_BB.xml** (434.7 MB)
-
-[Extrakte aus BB Testdaten](testExtracts/BB/ALKIS_processing.html)
-
-
-### Bayern
-
-[Testdaten aus BY](https://www.ldbv.bayern.de/service/testdaten.html)
-
-Kleiner Datensatz: **testdaten_alkis_komplett_nas_25833.xml** (24.9 MB)
-
-[Extrakte aus BB Testdaten](testExtracts/BY/ALKIS_processing.html)
+| Bundesland       | Testdaten  | Größe    | Extrakte | Besonderheiten |
+|:---------------- |:---------- | --------:|:-------- |:-------------- |
+Baden-Württemberg  | [**6-0-1_Beispiel_gesamt_2370_20120704.xml**](https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html) | 167.5 MB | [**Link**](testExtracts/BW/ALKIS_processing.html) | separate Flurstück-Polygone (derzeit werden nur Flurstückzentren als Punkte dargestellt) |
+Bayern             | [**testdaten_alkis_komplett_nas_25833.xml**](https://www.ldbv.bayern.de/service/testdaten.html) | 24.9 MB | [**Link**](testExtracts/BY/ALKIS_processing.html) | Flurstück-Eigentümer-Zuordnung als csv Tabelle in Testdaten |
+Berlin | [**Link**](testExtracts/BE/ALKIS_processing.html) |          |
+Brandenburg	| [**ALKIS_NAS_Beispieldaten_Bestand_BB.xml**](https://www.geobasis-bb.de/geodaten/aaa-testdaten.html) | 434.7 MB | [**Link**](testExtracts/BB/ALKIS_processing.html) | sehr großer Datensatz |
+Bremen	                HB      |        |          |
+Hamburg	                HH      |        |          |
+Hessen | [**GID6_BestandsdatenausgabeFlurstueck_Eigentum.xml**](https://www.gds.hessen.de/) | 4.3 MB | [**Link**](testExtracts/HE/ALKIS_processing.html) |
+Mecklenburg-Vorpommern | *angefragt bei geodatenservice@laiv-mv.de (Juni 2019), bislang unbeantwortet* |          |
+Niedersachsen | [**NAS-ohne-Eigentumsangaben-postnas.xml**](https://www.lgln.niedersachsen.de/download/126716/Amtliches_Liegenschaftskatasterinformationssystem_ALKIS_.zip) | 8.0 MB | Testdaten enthalten keine Eigentümer-Informationen! Damit nicht zu gebrauchen |
+Nordrhein-Westfalen	    NW      |        |          |
+Rheinland-Pfalz      | [**RP51_AX_Bestandsdatenauszug.xml**](https://lvermgeo.rlp.de/fileadmin/lvermgeo/testdaten/liegenschaftskataster/ALKIS_Bestandsdatenauszug_RP51_Testdaten.zip) | 1.1 MB | [**Link**](testExtracts/RP/ALKIS_processing.html) | Testdaten liegt Flurkarte (leider ohne Eigentümer-Info) bei.
+Saarland                SL      |        |          |
+Sachsen                 SN      |        |          |
+Sachsen-Anhalt          ST      |        |          |
+Schleswig-Holstein      SH      | [**Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml**](https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html) | 28.7 MB | [**Link**](testExtracts/SH/ALKIS_processing.html) |
+Thüringen               TH      |        |          |    

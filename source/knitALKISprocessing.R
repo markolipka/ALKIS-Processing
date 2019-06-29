@@ -14,6 +14,7 @@ switch(Sys.info()[['sysname']],
 
 ### tests:
 
+setwd("/Users/markolipka/Nextcloud/UKA/ALKIS_processing")
 # SH: https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html
 rmarkdown::render("source/ALKIS_processing.Rmd",
                   params = list(
@@ -65,3 +66,22 @@ rmarkdown::render("source/ALKIS_processing.Rmd",
 ### BY Vergleichsdaten im Testdatensatz:
 #by.vgl <- read.csv("testdaten/BY/Testdatei_Lurchingen.csv", sep = "#")
 #by.vgl.shp <- read_sf("testdaten/BY/Flurstueck.shp")
+
+
+# BE: https://www.stadtentwicklung.berlin.de/geoinformation/liegenschaftskataster/download/nas_mit_anonymisierten_eigentuemern.zip
+rmarkdown::render("source/ALKIS_processing.Rmd",
+                  params = list(
+                    alkisDataFile = "../testdaten/BE/auftragsposition_2_NAS_AMGR000000023166_1.xml",
+                    crs = 25833,
+                    source = "https://www.stadtentwicklung.berlin.de/geoinformation/liegenschaftskataster/download/nas_mit_anonymisierten_eigentuemern.zip",
+                    dynamic = TRUE),
+                  output_dir = "testExtracts/BE/")
+
+# RP
+rmarkdown::render("source/ALKIS_processing.Rmd",
+                  params = list(
+                    alkisDataFile = "../testdaten/RP/RP51_AX_Bestandsdatenauszug.xml",
+                    crs = 25832,
+                    source = "https://lvermgeo.rlp.de/fileadmin/lvermgeo/testdaten/liegenschaftskataster/ALKIS_Bestandsdatenauszug_RP51_Testdaten.zip",
+                    dynamic = TRUE),
+                  output_dir = "testExtracts/RP/")
