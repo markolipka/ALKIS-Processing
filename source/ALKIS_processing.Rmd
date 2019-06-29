@@ -7,8 +7,8 @@ output:
     toc: yes
 params:
   alkisDataFile:
+    value: NA
     label: "Pfad zur ALKIS Eingabedatei:"
-    value: "../testdaten/SH/Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml"
     input: file
     multiple: FALSE
     accept: "text/xml"
@@ -16,7 +16,7 @@ params:
     value: 25832
     label: "EPSG-Code des Koordinatenreferenzsystems"
   source: 
-    value: "https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html"
+    value: "keine Angaben"
     label: "Quelle der ALKIS-Daten: Beschreibung oder Link"
   dynamic:
       label: "Dynamische Übersichtskarte ausgeben? (kann bei großen Datensätzen lange dauern...)"
@@ -48,7 +48,7 @@ alkis <- processALKIS(path2NASfile = alkisDataFile,
 
 # Übersichtskarte:
 
-```{r, fig.width=10, fig.height=10}
+```{r OVmap, fig.width=10, fig.height=10}
 mapOV(alkis, dynamic = params$dynamic)
 ```
 
@@ -58,7 +58,7 @@ mapOV(alkis, dynamic = params$dynamic)
 
 mit Flurstücksnummern und Färbung der 12 wichtigsten Eigentümer(gemeinschaften):
 
-```{r FSplot, fig.width=30, fig.height=30}
+```{r FSmap, fig.width=30, fig.height=30}
 mapFlur(alkis)
 ```
 
@@ -72,11 +72,11 @@ mapFlur(alkis)
 
 `r nrow(alkis$ETtab)` Flurstücke 
 mit einer Gesamtfläche von 
-`r alkis$ETtab$amtlicheFlaeche %>% sum() / 10000` ha.
+`r round(alkis$ETtab$amtlicheFlaeche %>% sum() / 10000)` ha.
 
 Die Folgende Tabelle zeigt jedes Flurstück mit genauer Bezeichnung, amtlicher Fläche und zugehörigen Eigentümern oder Eigentümergemeinschaften:
 
-```{r}
+```{r FStable}
 tabFS(alkis)
 ```
 
@@ -86,7 +86,7 @@ tabFS(alkis)
 
 Jeder Einzeleigentümer oder Eigentümergemeinschaft mit jeweils Anzahl und Fläche ihrer Flurstücke:
 
-```{r FStable}
+```{r EGtable}
 tabEG(alkis)
 ```
 
