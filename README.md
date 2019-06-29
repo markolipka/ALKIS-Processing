@@ -23,7 +23,7 @@ In der folgenden -- noch unvollständigen -- Tabelle sind die ALKIS-Testdaten de
 |:---------------- |:---------- | --------:|:-------- |:-------------- |
 Baden-Württemberg  | [**6-0-1_Beispiel_gesamt_2370_20120704.xml**](https://www.lgl-bw.de/lgl-internet/opencms/de/05_Geoinformation/AAA/ALKIS/alkis-testdaten.html) | 167.5 MB | [**Link**](testExtracts/BW/ALKIS_processing.html) | separate Flurstück-Polygone (derzeit werden nur Flurstückzentren als Punkte dargestellt) |
 Bayern             | [**testdaten_alkis_komplett_nas_25833.xml**](https://www.ldbv.bayern.de/service/testdaten.html) | 24.9 MB | [**Link**](testExtracts/BY/ALKIS_processing.html) | Flurstück-Eigentümer-Zuordnung als csv Tabelle in Testdaten |
-Berlin | [**Link**](testExtracts/BE/ALKIS_processing.html) |          |
+Berlin | [**auftragsposition_2_NAS_AMGR000000023166_1.xml**](https://www.stadtentwicklung.berlin.de/geoinformation/liegenschaftskataster/download/nas_mit_anonymisierten_eigentuemern.zip) | 38.5 MB | [**Link**](testExtracts/BE/ALKIS_processing.html) |          |
 Brandenburg	| [**ALKIS_NAS_Beispieldaten_Bestand_BB.xml**](https://www.geobasis-bb.de/geodaten/aaa-testdaten.html) | 434.7 MB | [**Link**](testExtracts/BB/ALKIS_processing.html) | sehr großer Datensatz |
 Bremen	                HB      |        |          |
 Hamburg	                HH      |        |          |

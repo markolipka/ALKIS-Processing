@@ -139,7 +139,8 @@ processALKIS <- function(path2NASfile,
                        as.character(zaehler),
                        paste(zaehler, nenner, sep = "/"))) %>%
     group_by(flurstueckskennzeichen, FS) %>%
-    summarise(ET = paste(unique(Eigentuemer), collapse = "; ")) %>%
+    summarise(ET = paste(unique(Eigentuemer), collapse = "; ")) %>%#,
+              #nET = count ET) %>%
     merge(Flurstueck, ., by = "flurstueckskennzeichen")
   
   ## SHP-Dateien schreiben:
