@@ -36,11 +36,11 @@ processALKIS <- function(path2NASfile,
   
   Flurstueck <- read_sf(path2NASfile, "AX_Flurstueck", crs = crs) %>%
     rename(FSgmlid = gml_id) %>%
-    select(-one_of(troubling_cols)) %>%
-    # Erstelle Spalte "nenner", falls es keine gibt (wie z.B. in NRW)
-    mutate(nenner = ifelse("nenner" %in% names(.),
-                            nenner,
-                            NA_character_))
+    select(-one_of(troubling_cols))
+  # Erstelle Spalte "nenner", falls es keine gibt (wie z.B. in NRW)
+  if (!"nenner" %in% names(Flurstueck)) {
+    Flurstueck$nenner <- NA
+  }
   
   Buchungsstelle <- read_sf(path2NASfile, "AX_Buchungsstelle") %>%
     rename(BSgmlid = gml_id) %>%
@@ -66,11 +66,11 @@ processALKIS <- function(path2NASfile,
   
   Person <- read_sf(path2NASfile, "AX_Person") %>%
     rename(Pgmlid = gml_id) %>%
-    select(-one_of(troubling_cols)) %>%
-    # Erstelle Spalte "vorname", falls es keine gibt (wie z.B. in Rheinland-Pfalz)
-    mutate(vorname = ifelse("vorname" %in% names(.),
-                            vorname,
-                            NA_character_))
+    select(-one_of(troubling_cols))
+  # Erstelle Spalte "vorname", falls es keine gibt (wie z.B. in Rheinland-Pfalz)
+  if (!"vorname" %in% names(Person)) {
+    Person$vorname <- NA
+  }
   
   Anschrift <- read_sf(path2NASfile, "AX_Anschrift") %>%
     rename(Agmlid = gml_id) %>%
@@ -142,12 +142,12 @@ processALKIS <- function(path2NASfile,
   
   ## alle Flurstücke mit aggregierten Attribut- und Geodaten
   Flurstueck_ET <- FSETjoin %>%
-    mutate(FS = ifelse(is.na(nenner),
+    mutate(FS = if_else(is.na(nenner),
                        as.character(zaehler),
                        paste(zaehler, nenner, sep = "/"))) %>%
     group_by(flurstueckskennzeichen, FS) %>%
     summarise(ET = paste(unique(Eigentuemer), collapse = "; ")) %>%#,
-              #nET = count ET) %>%
+    #nET = count ET) %>%
     merge(Flurstueck, ., by = "flurstueckskennzeichen")
   
   ## SHP-Dateien schreiben:
