@@ -23,6 +23,7 @@ switch(Sys.info()[['sysname']],
 #path2NASfile <- "testdaten/RP/RP51_AX_Bestandsdatenauszug.xml" # RP
 #path2NASfile <- "testdaten/NW/testdaten_bda_oe.xml" # NRW FS
 #path2NASfile <- "testdaten/NW/result_FeatureCollection_bda.xml" # NRW ET
+#path2NASfile <- "testdaten/MV/BDA_testdaten_2017_05_16_anonymisiert.xml" # MV
 
 processALKIS <- function(path2NASfile,
                          crs = 25833,
@@ -31,7 +32,7 @@ processALKIS <- function(path2NASfile,
   ## check auf Eigentümer-Daten in ALKIS-Datei:
   if (!"AX_Person" %in% st_layers(path2NASfile)$name) stop("Keine ET-Daten")
   
-  troubling_cols <- c("identifier", "beginnt", "advStandardModell", "anlass")
+  troubling_cols <- c("identifier", "beginnt", "advStandardModell", "anlass", "uri", "art")
   
   Flurstueck <- read_sf(path2NASfile, "AX_Flurstueck", crs = crs) %>%
     rename(FSgmlid = gml_id) %>%
@@ -106,7 +107,7 @@ processALKIS <- function(path2NASfile,
     # Flurstück *istGebucht* auf BuchungsStelle via *BSgmlid*
     merge(Buchungsstelle %>%
             select(-starts_with("zaehler"), -starts_with("nenner")), # unklar, warum diese hier manchmal erneut auftauchen!!
-          by = "BSgmlid", all.x = TRUE) %>% 
+          by = "BSgmlid", all.x = TRUE) %>% #names()
     # Entschlüsselung der Buchungsart
     #merge(Buchungsart, ...) # TODO: falls wichtig
     #  merge(Buchungsblatt,

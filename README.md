@@ -28,7 +28,7 @@ Brandenburg	| [**ALKIS_NAS_Beispieldaten_Bestand_BB.xml**](https://www.geobasis-
 Bremen | --- | --- | siehe NI | ALKIS-Daten offenbar von LGLN NI |
 Hamburg	                HH      |        |          |
 Hessen | [**GID6_BestandsdatenausgabeFlurstueck_Eigentum.xml**](https://www.gds.hessen.de/) | 4.3 MB | [**Link**](testExtracts/HE/ALKIS_processing.html) |
-Mecklenburg-Vorpommern | *angefragt bei geodatenservice@laiv-mv.de (Juni 2019), bislang unbeantwortet* |          |
+Mecklenburg-Vorpommern | [**BDA_testdaten_2017_05_16_anonymisiert.xml**](mailto://geodatenservice@laiv-mv.de) | 159.1 MB |
 Niedersachsen | [**NAS-ohne-Eigentumsangaben-postnas.xml**](https://www.lgln.niedersachsen.de/download/126716/Amtliches_Liegenschaftskatasterinformationssystem_ALKIS_.zip) | 8.0 MB | Testdaten enthalten keine Eigentümer-Informationen! Damit nicht zu gebrauchen |
 Nordrhein-Westfalen	| [**result_FeatureCollection_bda.xml**](https://www.bezreg-koeln.nrw.de/brk_internet/geobasis/liegenschaftskataster/bestandsdatenauszug/testdaten_bestandsdatenauszug_nas.zip) | 0.03 MB |  | Testdaten liegen für Eigentümerdaten und Flurstücksdaten in zwei verschiedenen xml Dateien vor.
 Rheinland-Pfalz      | [**RP51_AX_Bestandsdatenauszug.xml**](https://lvermgeo.rlp.de/fileadmin/lvermgeo/testdaten/liegenschaftskataster/ALKIS_Bestandsdatenauszug_RP51_Testdaten.zip) | 1.1 MB | [**Link**](testExtracts/RP/ALKIS_processing.html) | Testdaten liegt Flurkarte (leider ohne Eigentümer-Info) bei.

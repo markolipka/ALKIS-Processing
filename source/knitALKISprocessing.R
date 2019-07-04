@@ -96,3 +96,12 @@ knitALKISreport(
   quelle = "https://lvermgeo.rlp.de/fileadmin/lvermgeo/testdaten/liegenschaftskataster/ALKIS_Bestandsdatenauszug_RP51_Testdaten.zip",
   dynamic = TRUE,
   output_dir = "RP")
+
+#MV:
+knitALKISreport(
+  alkisDataFile = "testdaten/MV/BDA_testdaten_2017_05_16_anonymisiert.xml",
+  crs.epsg = 25833,
+  quelle = "per Mail angefragt beim Fachbereich Geodatenbereitstellung
+Landesamt für innere Verwaltung Mecklenburg-Vorpommern (geodatenservice@laiv-mv.de)",
+  dynamic = TRUE,
+  output_dir = "MV")
