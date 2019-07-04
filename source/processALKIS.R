@@ -229,8 +229,10 @@ tabFS <- function(alkisExtract) {
   tab <- alkisExtract$ETtab %>%
     st_drop_geometry() %>%
     arrange(flurstueckskennzeichen) %>%
-    select(flurstueckskennzeichen, FS, gemarkungsnummer, 
-           #flurnummer, # keine Flurnummer in BY Daten vorhanden?!
+    select(flurstueckskennzeichen, 
+           land, gemarkungsnummer,
+           one_of("flurnummer"), # keine Flurnummer in BY Daten vorhanden?!
+           FS, 
            amtlicheFlaeche, ET,
            everything())
   

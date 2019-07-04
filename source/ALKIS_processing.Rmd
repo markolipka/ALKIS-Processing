@@ -46,7 +46,7 @@ alkis <- processALKIS(path2NASfile = alkisDataFile,
 
 `r nrow(alkis$ETtab)` Flurstücke extrahiert aus ALKIS-NAS-Datei. 
 
-# Übersichtskarte:
+# Übersichtskarte
 
 ```{r OVmap, fig.width=10, fig.height=10}
 mapOV(alkis, dynamic = params$dynamic)
