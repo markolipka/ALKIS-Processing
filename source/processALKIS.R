@@ -24,6 +24,7 @@ switch(Sys.info()[['sysname']],
 #path2NASfile <- "testdaten/NW/testdaten_bda_oe.xml" # NRW FS
 #path2NASfile <- "testdaten/NW/result_FeatureCollection_bda.xml" # NRW ET
 #path2NASfile <- "testdaten/MV/BDA_testdaten_2017_05_16_anonymisiert.xml" # MV
+#path2NASfile <- "testdaten/SL/AMGR000000380950.xml" #SL
 
 processALKIS <- function(path2NASfile,
                          crs = 25833,

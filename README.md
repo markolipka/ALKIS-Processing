@@ -17,7 +17,7 @@ Automatisierte Extraktion von Eigentümerinformationen und Kartengenerierung aus
 
 ## Testdaten der einzelnen Bundesländer
 
-In der folgenden -- noch unvollständigen -- Tabelle sind die ALKIS-Testdaten der Bundesländer und die Links zu daraus gewonnenen Tabellen und Karten (Extrakte) aufgeführt.
+In der folgenden Tabelle sind die ALKIS-Testdaten der Bundesländer und die Links zu daraus gewonnenen Tabellen und Karten (Extrakte) aufgeführt.
 
 | Bundesland       | Testdaten  | Größe    | Extrakte | Besonderheiten |
 |:---------------- |:---------- | --------:|:-------- |:-------------- |
@@ -25,15 +25,15 @@ Baden-Württemberg  | [**6-0-1_Beispiel_gesamt_2370_20120704.xml**](https://www.
 Bayern             | [**testdaten_alkis_komplett_nas_25833.xml**](https://www.ldbv.bayern.de/service/testdaten.html) | 24.9 MB | [**Link**](testExtracts/BY/ALKIS_processing.html) | Flurstück-Eigentümer-Zuordnung als csv Tabelle in Testdaten |
 Berlin | [**auftragsposition_2_NAS_AMGR000000023166_1.xml**](https://www.stadtentwicklung.berlin.de/geoinformation/liegenschaftskataster/download/nas_mit_anonymisierten_eigentuemern.zip) | 38.5 MB | [**Link**](testExtracts/BE/ALKIS_processing.html) |          |
 Brandenburg	| [**ALKIS_NAS_Beispieldaten_Bestand_BB.xml**](https://www.geobasis-bb.de/geodaten/aaa-testdaten.html) | 434.7 MB | [**Link**](testExtracts/BB/ALKIS_processing.html) | sehr großer Datensatz |
-Bremen | --- | --- | siehe NI | ALKIS-Daten offenbar von LGLN NI |
+Bremen | --- | --- | siehe NI | ALKIS-Daten für Bremen werden offenbar von LGLN NI bereit gestellt.|
 Hamburg	                HH      |        |          |
 Hessen | [**GID6_BestandsdatenausgabeFlurstueck_Eigentum.xml**](https://www.gds.hessen.de/) | 4.3 MB | [**Link**](testExtracts/HE/ALKIS_processing.html) |
 Mecklenburg-Vorpommern | [**BDA_testdaten_2017_05_16_anonymisiert.xml**](mailto://geodatenservice@laiv-mv.de) | 159.1 MB | *IN REVIEW* |
-Niedersachsen | [**NAS-ohne-Eigentumsangaben-postnas.xml**](https://www.lgln.niedersachsen.de/download/126716/Amtliches_Liegenschaftskatasterinformationssystem_ALKIS_.zip) | 8.0 MB | Testdaten enthalten keine Eigentümer-Informationen! Damit nicht zu gebrauchen |
+Niedersachsen | [**NAS-ohne-Eigentumsangaben-postnas.xml**](https://www.lgln.niedersachsen.de/download/126716/Amtliches_Liegenschaftskatasterinformationssystem_ALKIS_.zip) | 8.0 MB | Verarbeitung nicht möglich | Testdaten enthalten keine Eigentümer-Informationen! Damit nicht zu gebrauchen |
 Nordrhein-Westfalen	| [**result_FeatureCollection_bda.xml**](https://www.bezreg-koeln.nrw.de/brk_internet/geobasis/liegenschaftskataster/bestandsdatenauszug/testdaten_bestandsdatenauszug_nas.zip) | 0.03 MB |  | Testdaten liegen für Eigentümerdaten und Flurstücksdaten in zwei verschiedenen xml Dateien vor.
-Rheinland-Pfalz      | [**RP51_AX_Bestandsdatenauszug.xml**](https://lvermgeo.rlp.de/fileadmin/lvermgeo/testdaten/liegenschaftskataster/ALKIS_Bestandsdatenauszug_RP51_Testdaten.zip) | 1.1 MB | [**Link**](testExtracts/RP/ALKIS_processing.html) | Testdaten liegt Flurkarte (leider ohne Eigentümer-Info) bei.
-Saarland                SL      |        |          |
-Sachsen                 SN      |        |          |
-Sachsen-Anhalt          ST      |        |          |
-Schleswig-Holstein      SH      | [**Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml**](https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html) | 28.7 MB | [**Link**](testExtracts/SH/ALKIS_processing.html) |
-Thüringen               TH      |        |          |    
+Rheinland-Pfalz      | [**RP51_AX_Bestandsdatenauszug.xml**](https://lvermgeo.rlp.de/fileadmin/lvermgeo/testdaten/liegenschaftskataster/ALKIS_Bestandsdatenauszug_RP51_Testdaten.zip) | 1.1 MB | [**Link**](testExtracts/RP/ALKIS_processing.html) | Testdaten liegt Flurkarte bei, leider ohne Eigentümer-Info.
+Saarland |        |          | Verarbeitung nicht möglich |  Testdaten enthalten kein Layer "AX_Anschrift" |
+Sachsen | [**Bestandsdaten_Ostritz_mEToBsmPkt.xml**](https://www.landesvermessung.sachsen.de/inhalt/produkte/lika/download/download.html) | 66.1 MB | [**Link**](testExtracts/SN/ALKIS_processing.html) |
+Sachsen-Anhalt | [**auftragsposition_1_AMGR000000283627.xml**](https://www.lvermgeo.sachsen-anhalt.de/de/leistungen-testdaten-der-geobasisdaten/leistungen-testdaten-der-geobasisdaten.html) | 2.5 MB | [**Link**](testExtracts/ST/ALKIS_processing.html) |
+Schleswig-Holstein | [**Bestandsdatenauszug_NAS_ETRS89_UTM_0348.xml**](https://www.schleswig-holstein.de/DE/Landesregierung/LVERMGEOSH/Downloads/DownloadTestdaten/downloadsTestdatenAlkis.html) | 28.7 MB | [**Link**](testExtracts/SH/ALKIS_processing.html) |
+Thüringen |  [**Test_ALKIS-NAS_2107007.xml** & **Test_ALKIS-NAS_2107008.xml**](https://www.thueringen.de/th9/tlbg/onlineshop-vertrieb/testdaten/) | 18.9 MB & 34.8 MB | [**Link**](testExtracts/TH1/ALKIS_processing.html) & [**Link**](testExtracts/TH2/ALKIS_processing.html) | Zwei Testdatensätze verfügbar |    

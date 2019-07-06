@@ -105,3 +105,51 @@ knitALKISreport(
 Landesamt für innere Verwaltung Mecklenburg-Vorpommern (geodatenservice@laiv-mv.de)",
   dynamic = TRUE,
   output_dir = "MV")
+
+#Saarland (SL):
+knitALKISreport(
+  alkisDataFile = "testdaten/SL/AMGR000000380950.xml",
+  crs.epsg = 25832,
+  quelle = "https://www.saarland.de/100407.htm",
+  dynamic = TRUE,
+  output_dir = "SL")
+
+#Sachsen (SN):
+knitALKISreport(
+  alkisDataFile = "testdaten/SN/Bestandsdaten_Ostritz_mEToBsmPkt.xml",
+  crs.epsg = 25833,
+  quelle = "https://www.landesvermessung.sachsen.de/inhalt/produkte/lika/download/download.html",
+  dynamic = TRUE,
+  output_dir = "SN")
+
+#Sachsen-Anhalt (ST):
+knitALKISreport(
+  alkisDataFile = "testdaten/ST/auftragsposition_1_AMGR000000283627.xml",
+  crs.epsg = 25832,
+  quelle = "https://www.lvermgeo.sachsen-anhalt.de/de/leistungen-testdaten-der-geobasisdaten/leistungen-testdaten-der-geobasisdaten.html",
+  dynamic = TRUE,
+  output_dir = "ST")
+
+#Thüringen (TH1):
+knitALKISreport(
+  alkisDataFile = "testdaten/TH/Test_ALKIS-NAS_2107007.xml",
+  crs.epsg = 25832,
+  quelle = "https://www.thueringen.de/th9/tlbg/onlineshop-vertrieb/testdaten/",
+  dynamic = TRUE,
+  output_dir = "TH1")
+
+#Thüringen (TH2):
+knitALKISreport(
+  alkisDataFile = "testdaten/TH/Test_ALKIS-NAS_2107008.xml",
+  crs.epsg = 25832,
+  quelle = "https://www.thueringen.de/th9/tlbg/onlineshop-vertrieb/testdaten/",
+  dynamic = TRUE,
+  output_dir = "TH2")
+
+#Niedersachsen (NI):
+knitALKISreport(
+  alkisDataFile = "testdaten/NI/NAS-ohne-Eigentumsangaben-postnas.xml",
+  crs.epsg = 25832,
+  quelle = "https://www.lgln.niedersachsen.de/startseite/online_angebote_amp_services/service/testdaten/testdaten-51644.html",
+  dynamic = TRUE,
+  output_dir = "NI")
