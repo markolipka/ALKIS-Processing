@@ -30,8 +30,13 @@ processALKIS <- function(path2NASfile,
                          crs = 25833,
                          shp.overwrite = TRUE
 ) {
-  ## check auf Eigentümer-Daten in ALKIS-Datei:
-  if (!"AX_Person" %in% st_layers(path2NASfile)$name) stop("Keine ET-Daten")
+  ## check auf nötige Layer-Daten in ALKIS-Datei:
+  noetigeLayer <- c("AX_Person", "AX_Anschrift")
+  lapply(noetigeLayer, function(lay) {
+    if (!lay %in% st_layers(path2NASfile)$name) stop(paste("Kein Layer", lay, "vorhanden. Abbruch!"))
+  })
+  #if (!"AX_Person" %in% st_layers(path2NASfile)$name) stop("Kein Layer 'AX_Person' vorhanden. Abbruch!")
+  #if (!"AX_Anschrift" %in% st_layers(path2NASfile)$name) stop("Kein Layer 'AX_Anschrift' vorhanden. Abbruch!")
   
   troubling_cols <- c("identifier", "beginnt", "advStandardModell", "anlass", "uri", "art")
   
